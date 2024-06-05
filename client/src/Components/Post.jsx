@@ -15,6 +15,7 @@ export default function Post({
   const { setID } = useContext(ComentsContext);
   const [LIKECOUNT, SETLIKECOUNT] = useState(likesCount);
   const [image, setImage] = useState("");
+  const {url} = useContext(ComentsContext)
 
   const handleClickForComment = (name) => {
     handleCommentBox();
@@ -40,7 +41,7 @@ export default function Post({
     else if (groupIndex === 1 && index === 0) parameter = "p3";
     else if (groupIndex === 1 && index === 1) parameter = "p4";
 
-    fetch(`/AddLike/${id}/${parameter}`)
+    fetch(`${url}/AddLike/${id}/${parameter}`)
       .then((data) => {
         SETLIKECOUNT((prevLikesCount) => {
           const updatedLikesCount = { ...prevLikesCount };
@@ -54,7 +55,7 @@ export default function Post({
   };
 
   useEffect(() => {
-    fetch(`/GetLikeButtons`)
+    fetch(`${url}/GetLikeButtons`)
       .then((res) => res.json())
       .then((data) => {
         let array = [];
@@ -88,7 +89,7 @@ export default function Post({
   }, []);
   const userName = useContext(ComentsContext);
   const visited = () => {
-    fetch(`/setVisited/${id}/${userName["userName"]}`)
+    fetch(`${url}/setVisited/${id}/${userName["userName"]}`)
       .then((res) => {
         return res.json();
       })

@@ -10,6 +10,7 @@ export default function SignIn(setAuthenticated) {
     name: ""
   });
   const ul = "https://cdn2.vectorstock.com/i/1000x1000/11/41/male-profile-picture-vector-2051141.jpg";
+  const {url} = useContext(ComentsContext)
 
   const handlePhotoClick = () => {
     document.getElementById("profilePhotoInput").click();
@@ -54,7 +55,7 @@ const {setUserName} = useContext(ComentsContext)
     visitedPosts:[]
   };
 
-  fetch(`/Dataentry`, {
+  fetch(`${url}/Dataentry`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

@@ -13,6 +13,7 @@ import AuthenticationPage from "./Components/AuthenticationPage";
 
 
 export default function App() {
+  const url = "https://socialmedia-2-beta.vercel.app  "
   const [active, setActive] = useState("Home");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [commentActive, setCommentActive] = useState(true);
@@ -50,7 +51,7 @@ export default function App() {
   return (
     <>
       <ComentsContext.Provider
-        value={{ setCommentActive, commentActive,id,setID,setName, name ,getSigning ,setGetSigning,userName,handleClick ,setUserName}}>
+        value={{ setCommentActive, url,commentActive,id,setID,setName, name ,getSigning ,setGetSigning,userName,handleClick ,setUserName}}>
         {" "} 
         {/* Provide the context value */}
         {!authenticated ? (

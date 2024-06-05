@@ -10,8 +10,10 @@ export default function AuthenticationPage({ setAuthenticated }) {
   const [password, setPassword] = useState("");
   const [failed, setFailed] = useState(false);
   const { setUserName } = useContext(ComentsContext);
+  const {url} = useContext(ComentsContext)
+
   const handleGoToLogin = () => {
-    fetch(`/Auth/${email}/${password}`)
+    fetch(`${url}/Auth/${email}/${password}`)
       .then((res) => {
         if (!res.ok) {
           return Promise.reject(res.status);
@@ -24,7 +26,7 @@ export default function AuthenticationPage({ setAuthenticated }) {
           alert(arrayOfValue);
         } else {
           localStorage.setItem("isAuthenticated", "true"); // Save authentication status in local storage
-          fetch(`/users/${email}`)
+          fetch(`${url}/users/${email}`)
             .then((res) => {
               return res.json();
             })

@@ -5,7 +5,7 @@ export default function AddPost({ activeFunction }) {
   const [isUploaded, setIsUploaded] = useState(false);
   const [filePreview, setFilePreview] = useState(null); // State to store the file preview
   const [caption, setCaption] = useState(""); // State to store the caption
-
+  const {url} = useContext(ComentsContext)
   const handleClick = (navItem) => {
     return () => activeFunction(navItem);
   };
@@ -31,7 +31,7 @@ const useName = useContext(ComentsContext)
   };
 
   const handlePost = () => {
-    fetch("/Posts", {
+    fetch(`${url}/Posts`, {
       method: "POST",
       body: JSON.stringify({
         accountName: useName['userName'],

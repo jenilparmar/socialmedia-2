@@ -5,11 +5,13 @@ export default function Commentbox() {
   const { name, setCommentActive } = useContext(ComentsContext);
   const [comment, setComment] = useState([]);
   const [commentText, setCommentText] = useState("");
+  const {url} = useContext(ComentsContext)
+
   const handleClickForComment = () => {
     setCommentActive(true);
   };
   const handleSendComment = () => {
-    fetch(`/PostComment/${id["id"]}/${commentText}`)
+    fetch(`${url}/PostComment/${id["id"]}/${commentText}`)
       .then((data) => {
         // console.log(data);       
           let i = document.getElementById('input')// Clear the input field after 
@@ -27,7 +29,7 @@ export default function Commentbox() {
 
   useEffect(() => {
     // console.log(id['id']);
-    fetch(`/PostData/${id['id']}`)
+    fetch(`${url}/PostData/${id['id']}`)
     
       .then((res) => res.json())
       .then((data) => {

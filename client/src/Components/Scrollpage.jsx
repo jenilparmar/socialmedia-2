@@ -10,10 +10,11 @@ export default function Scrollpage({
   const [posts, setPosts] = useState([]);
   const { userName } = useContext(ComentsContext); // Moved useContext to the top
   const blurClass = "blur";
+  const {url} = useContext(ComentsContext)
 
   useEffect(() => {
     if (userName) {
-      fetch(`/GetAllPosts/${userName}`)
+      fetch(`${url}/GetAllPosts/${userName}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Network response was not ok");

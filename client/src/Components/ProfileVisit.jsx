@@ -9,13 +9,14 @@ export default function ProfileVisit({ person, info }) {
   const [followersCount, setFollowersCount] = useState(-1);
   const [flag, setFlag] = useState(false);
   const [image, setImage] = useState("");
+  const {url} = useContext(ComentsContext)
 
-  // Fetches posts on component mount (empty dependency array [])
+  // Fetches${url} posts on component mount (empty dependency array [])
   useEffect(() => {
     setPostArray(info["posts"]); // Assuming "post" is an object
   }, []);
   useEffect(() => {
-    fetch(`getProfilePosts/${person}`)
+    fetch(`${url}getProfilePosts/${person}`)
       .then((res) => {
         return res.json();
       })
@@ -48,7 +49,7 @@ export default function ProfileVisit({ person, info }) {
 
   const { userName } = useContext(ComentsContext);
   useEffect(() => {
-    fetch(`/checkIsFollowing/${person}/${userName}`)
+    fetch(`${url}/checkIsFollowing/${person}/${userName}`)
       .then((res) => {
         return res.json();
       })
@@ -60,7 +61,7 @@ export default function ProfileVisit({ person, info }) {
       });
   }, []);
   function addToFollow() {
-    fetch(`/addFollowing/${person}/${userName}`)
+    fetch(`${url}/addFollowing/${person}/${userName}`)
       .then((res) => {
         return res.json();
       })
@@ -71,7 +72,7 @@ export default function ProfileVisit({ person, info }) {
         console.log(e);
       });
 
-    fetch(`/addFollower/${userName}/${person}`)
+    fetch(`${url}/addFollower/${userName}/${person}`)
       .then((res) => {
         return res.json();
       })
@@ -85,7 +86,7 @@ export default function ProfileVisit({ person, info }) {
   }
   // Renders profile information and posts
   useEffect(() => {
-    fetch(`/findUser/${person}`)
+    fetch(`${url}/findUser/${person}`)
       .then((res) => {
         return res.json();
       })

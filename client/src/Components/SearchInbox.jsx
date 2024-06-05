@@ -9,6 +9,8 @@ export default function SearchInbox({ setPerson ,setFlag,setInfo}) {
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   };
+  const {url} = useContext(ComentsContext)
+
 const { handleClick} = useContext(ComentsContext)
 const { userName} = useContext(ComentsContext)
   const handleKeyDown = (e) => {
@@ -18,7 +20,7 @@ const { userName} = useContext(ComentsContext)
         handleClick("Profile")
       }
       else{
-      fetch(`/search/${searchValue}`)
+      fetch(`${url}/search/${searchValue}`)
         .then((res) => {
           return res.json();
         })

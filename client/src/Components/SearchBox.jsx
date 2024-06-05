@@ -10,6 +10,7 @@ export default function SearchBox({ isDarkMode, handleClick }) {
   const [followersCount,setFollowersCount] = useState(-1)
   const [info, setInfo] = useState({});
   const [flag,setFlag] = useState(false)
+  
   let len = 0;
   if (!info) {
     len = info["posts"].length;

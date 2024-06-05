@@ -12,9 +12,10 @@ export default function Profile() {
   const [len, setLen] = useState(0);
   const [loading, setLoading] = useState(true);
   const [profilePost, setProfilePost] = useState([]);
+  const {url} = useContext(ComentsContext)
 
   useEffect(() => {
-    fetch(`/search/${userName["userName"]}`)
+    fetch(`${url}/search/${userName["userName"]}`)
       .then((res) => res.json())
       .then((data) => {
         setProfile(data);
@@ -23,6 +24,7 @@ export default function Profile() {
         console.log(e);
       });
   }, []);
+
 
   useEffect(() => {
     if (profile["posts"]) {
@@ -38,7 +40,7 @@ export default function Profile() {
   }, [profile]);
 
   useEffect(() => {
-    fetch(`getProfilePosts/${userName["userName"]}`)
+    fetch(`${url}getProfilePosts/${userName["userName"]}`)
       .then((res) => res.json())
       .then((data) => {
         setProfilePost(data);
@@ -51,7 +53,7 @@ export default function Profile() {
   const handleDelete = (index) => {
     const id = profile["posts"][index];
 
-    fetch(`/deletePost/${id}`)
+    fetch(`${url}/deletePost/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -62,7 +64,7 @@ export default function Profile() {
         console.log(e);
       });
 
-    fetch(`/deleteFromFindUser/${userName["userName"]}/${index}`)
+    fetch(`${url}/deleteFromFindUser/${userName["userName"]}/${index}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

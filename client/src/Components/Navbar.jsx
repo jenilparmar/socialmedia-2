@@ -5,6 +5,7 @@ export default function Navbar({ activeFunction, darkMode, isDarkMode }) {
   const handleClick = (navItem) => {
     activeFunction(navItem);
   };
+  const {url} = useContext(ComentsContext)
 
   let color = isDarkMode ? "black" : "white";
   const { setCommentActive } = useContext(ComentsContext);
@@ -13,7 +14,7 @@ export default function Navbar({ activeFunction, darkMode, isDarkMode }) {
   const [image , setImage] = useState("")
   useEffect(()=>{
     // console.log(name);
-    fetch(`/findUser/${userName}`)
+    fetch(`${url}/findUser/${userName}`)
     .then(res=>{
       return res.json();
     })
