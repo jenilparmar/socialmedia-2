@@ -13,7 +13,7 @@ import AuthenticationPage from "./Components/AuthenticationPage";
 
 
 export default function App() {
-  const url = "https://socialmedia-2-beta.vercel.app  "
+  const url = "https://socialmedia-2-beta.vercel.app"
   const [active, setActive] = useState("Home");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [commentActive, setCommentActive] = useState(true);
