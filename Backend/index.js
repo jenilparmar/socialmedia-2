@@ -36,7 +36,7 @@ function getLikeInfo(acn, pera) {
 }
 app.use(cors(
   {
-    origin:['https://meme-menia.vercel.app'],
+    origin:['https://meme-menia.vercel.app','http://localhost:3000/'],
     methods:['POST','GET'],
     credentials:true
   }

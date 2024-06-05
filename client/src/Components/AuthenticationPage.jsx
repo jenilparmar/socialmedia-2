@@ -13,6 +13,7 @@ export default function AuthenticationPage({ setAuthenticated }) {
   const {url} = useContext(ComentsContext)
 
   const handleGoToLogin = () => {
+    console.log(url);
     fetch(`${url}/Auth/${email}/${password}`)
       .then((res) => {
         if (!res.ok) {
