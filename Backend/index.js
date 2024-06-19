@@ -16,6 +16,13 @@ const app = express();
 url = process.env.connectionString;
 const dbName = "MemeMenia";
 let db;
+app.use(cors(
+  {
+    origin:['https://socialmedia-xi-two.vercel.app','http://localhost:3000'],
+    methods:['POST','GET'],
+    credentials:true
+  }
+))
 MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((client) => {
     console.log("Connected successfully to MongoDB server");
@@ -34,13 +41,6 @@ function getLikeInfo(acn, pera) {
       return e;
     });
 }
-app.use(cors(
-  {
-    origin:['https://meme-menia.vercel.app','http://localhost:3000/'],
-    methods:['POST','GET'],
-    credentials:true
-  }
-))
 //////////////////////////////////////////////////////////////////////////////////////////////////
 app.get("/users/:email", (req, res) => {
   const email = req.params.email;
