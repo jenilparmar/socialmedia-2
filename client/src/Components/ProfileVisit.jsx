@@ -16,7 +16,7 @@ export default function ProfileVisit({ person, info }) {
     setPostArray(info["posts"]); // Assuming "post" is an object
   }, []);
   useEffect(() => {
-    fetch(`${url}getProfilePosts/${person}`)
+    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}getProfilePosts/${person}`)
       .then((res) => {
         return res.json();
       })
@@ -49,7 +49,7 @@ export default function ProfileVisit({ person, info }) {
 
   const { userName } = useContext(ComentsContext);
   useEffect(() => {
-    fetch(`${url}/checkIsFollowing/${person}/${userName}`)
+    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/checkIsFollowing/${person}/${userName}`)
       .then((res) => {
         return res.json();
       })
@@ -61,7 +61,7 @@ export default function ProfileVisit({ person, info }) {
       });
   }, []);
   function addToFollow() {
-    fetch(`${url}/addFollowing/${person}/${userName}`)
+    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/addFollowing/${person}/${userName}`)
       .then((res) => {
         return res.json();
       })
@@ -72,7 +72,7 @@ export default function ProfileVisit({ person, info }) {
         console.log(e);
       });
 
-    fetch(`${url}/addFollower/${userName}/${person}`)
+    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/addFollower/${userName}/${person}`)
       .then((res) => {
         return res.json();
       })
@@ -86,7 +86,7 @@ export default function ProfileVisit({ person, info }) {
   }
   // Renders profile information and posts
   useEffect(() => {
-    fetch(`${url}/findUser/${person}`)
+    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/findUser/${person}`)
       .then((res) => {
         return res.json();
       })

@@ -20,7 +20,7 @@ const { userName} = useContext(ComentsContext)
         handleClick("Profile")
       }
       else{
-      fetch(`${url}/search/${searchValue}`)
+      fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/search/${searchValue}`)
         .then((res) => {
           return res.json();
         })

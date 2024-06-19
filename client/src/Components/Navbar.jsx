@@ -14,7 +14,7 @@ export default function Navbar({ activeFunction, darkMode, isDarkMode }) {
   const [image , setImage] = useState("")
   useEffect(()=>{
     // console.log(name);
-    fetch(`${url}/findUser/${userName}`)
+    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/findUser/${userName}`)
     .then(res=>{
       return res.json();
     })

@@ -41,7 +41,7 @@ export default function Post({
     else if (groupIndex === 1 && index === 0) parameter = "p3";
     else if (groupIndex === 1 && index === 1) parameter = "p4";
 
-    fetch(`${url}/AddLike/${id}/${parameter}`)
+    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/AddLike/${id}/${parameter}`)
       .then((data) => {
         SETLIKECOUNT((prevLikesCount) => {
           const updatedLikesCount = { ...prevLikesCount };
@@ -55,7 +55,7 @@ export default function Post({
   };
 
   useEffect(() => {
-    fetch(`${url}/GetLikeButtons`)
+    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/GetLikeButtons`)
       .then((res) => res.json())
       .then((data) => {
         let array = [];
@@ -74,7 +74,7 @@ export default function Post({
     groupedImgArray.push(imgArray.slice(i, i + 2));
   }
   useEffect(() => {
-    fetch(`/findUser/${name}`)
+    fetch(`https://socialmedia-backend-25w7.onrender.com/findUser/${name}`)
       .then((res) => {
         return res.json();
       })
@@ -89,7 +89,7 @@ export default function Post({
   }, []);
   const userName = useContext(ComentsContext);
   const visited = () => {
-    fetch(`${url}/setVisited/${id}/${userName["userName"]}`)
+    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/setVisited/${id}/${userName["userName"]}`)
       .then((res) => {
         return res.json();
       })

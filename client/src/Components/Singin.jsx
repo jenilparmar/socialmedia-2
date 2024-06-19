@@ -10,7 +10,7 @@ export default function SignIn(setAuthenticated) {
     name: ""
   });
   const ul = "https://cdn2.vectorstock.com/i/1000x1000/11/41/male-profile-picture-vector-2051141.jpg";
-  const {url} = useContext(ComentsContext)
+  const {url} = 'https://socialmedia-backend-25w7.onrender.com'
 
   const handlePhotoClick = () => {
     document.getElementById("profilePhotoInput").click();
