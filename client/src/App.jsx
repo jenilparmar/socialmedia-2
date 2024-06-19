@@ -13,7 +13,7 @@ import AuthenticationPage from "./Components/AuthenticationPage";
 
 
 export default function App() {
-  const url = "https://socialmedia-backend-25w7.onrender.com"
+  const url = "https://socialmedia-2-backend.onrender.com"
   const [active, setActive] = useState("Home");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [commentActive, setCommentActive] = useState(true);

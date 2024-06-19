@@ -15,7 +15,7 @@ export default function Profile() {
   const {url} = useContext(ComentsContext)
 
   useEffect(() => {
-    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/search/${userName["userName"]}`)
+    fetch(`${url}/search/${userName["userName"]}`)
       .then((res) => res.json())
       .then((data) => {
         setProfile(data);
@@ -40,7 +40,7 @@ export default function Profile() {
   }, [profile]);
 
   useEffect(() => {
-    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}getProfilePosts/${userName["userName"]}`)
+    fetch(`${url}getProfilePosts/${userName["userName"]}`)
       .then((res) => res.json())
       .then((data) => {
         setProfilePost(data);
@@ -53,7 +53,7 @@ export default function Profile() {
   const handleDelete = (index) => {
     const id = profile["posts"][index];
 
-    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/deletePost/${id}`)
+    fetch(`${url}/deletePost/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -64,7 +64,7 @@ export default function Profile() {
         console.log(e);
       });
 
-    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/deleteFromFindUser/${userName["userName"]}/${index}`)
+    fetch(`${url}/deleteFromFindUser/${userName["userName"]}/${index}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

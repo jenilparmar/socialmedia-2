@@ -10,7 +10,7 @@ export default function SignIn(setAuthenticated) {
     name: ""
   });
   const ul = "https://cdn2.vectorstock.com/i/1000x1000/11/41/male-profile-picture-vector-2051141.jpg";
-  const {url} = 'https://socialmedia-backend-25w7.onrender.com'
+  const {url} = useContext(ComentsContext)
 
   const handlePhotoClick = () => {
     document.getElementById("profilePhotoInput").click();
@@ -73,7 +73,7 @@ const {setUserName} = useContext(ComentsContext)
     // Do something with the response data if needed
     console.log(data);
     // Fetch user or perform other actions as needed
-    fetch(`/findUser/${name}`)
+    fetch(`${url}/findUser/${name}`)
       .then(data => {
         // console.log(data);
       })

@@ -11,7 +11,7 @@ export default function Commentbox() {
     setCommentActive(true);
   };
   const handleSendComment = () => {
-    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/PostComment/${id["id"]}/${commentText}`)
+    fetch(`${url}/PostComment/${id["id"]}/${commentText}`)
       .then((data) => {
         // console.log(data);       
           let i = document.getElementById('input')// Clear the input field after 
@@ -29,7 +29,7 @@ export default function Commentbox() {
 
   useEffect(() => {
     // console.log(id['id']);
-    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/PostData/${id['id']}`)
+    fetch(`${url}/PostData/${id['id']}`)
     
       .then((res) => res.json())
       .then((data) => {

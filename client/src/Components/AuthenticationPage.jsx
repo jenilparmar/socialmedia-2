@@ -14,7 +14,7 @@ export default function AuthenticationPage({ setAuthenticated }) {
 
   const handleGoToLogin = () => {
     console.log(url);
-    fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/Auth/${email}/${password}`)
+    fetch(`${url}/Auth/${email}/${password}`)
       .then((res) => {
         if (!res.ok) {
           return Promise.reject(res.status);
@@ -27,7 +27,7 @@ export default function AuthenticationPage({ setAuthenticated }) {
           alert(arrayOfValue);
         } else {
           localStorage.setItem("isAuthenticated", "true"); // Save authentication status in local storage
-          fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/users/${email}`)
+          fetch(`${url}/users/${email}`)
             .then((res) => {
               return res.json();
             })

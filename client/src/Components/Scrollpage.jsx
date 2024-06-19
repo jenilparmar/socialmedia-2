@@ -14,7 +14,7 @@ export default function Scrollpage({
 
   useEffect(() => {
     if (userName) {
-      fetch(`${'https://socialmedia-backend-25w7.onrender.com'}/GetAllPosts/${userName}`)
+      fetch(`${url}/GetAllPosts/${userName}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Network response was not ok");
